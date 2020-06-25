@@ -1,0 +1,44 @@
+﻿.arkaplan {
+    background-image:url(/img/index.jpg)
+}
+.sozrenk {
+    color:chocolate
+}
+.sozaltrenk {
+    color:InfoText
+}
+.sozarkaplan {
+    background-color:lavender
+}
+.kayitsayfasiarkaplan {
+    background-image:url(/img/bgkayit.png);
+    background-repeat:repeat-y
+}
+.girissayfasiarkaplan {
+      background-image:url(/img/bgiris.png);
+
+}
+.kayityazirenk {
+    color:lavender
+}
+.ortala {
+   align-items:center
+}
+
+
+
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+    background:rgba(255, 0, 0, 0.44)
+}
+
+::-webkit-scrollbar-thumb {
+    background:#ff0000;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+    background: #000;
+}

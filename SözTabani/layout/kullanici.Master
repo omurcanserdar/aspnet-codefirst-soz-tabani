@@ -1,0 +1,186 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="kullanici.master.cs" Inherits="SözTabani.layout.kullanici" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Söz Tabanı meta description..." />
+    <meta name="author" content="omurserdarr" />
+      <script src="../bootstrap-3.3.7-dist/js/paylasfb.js" type="text/javascript"> </script>
+    <link rel="icon" href="">
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap-3.3.7-dist/font-awesome-4.6.3/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <title>Söz Tabanı</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"
+      <%--  type="text/css" />--%>
+    <!-- Custom styles for this template -->
+    <link href="../bootstrap-3.3.7-dist/css/dashboard.css" rel="stylesheet" /><%-- type="text/css" />--%>
+        <link href="../bootstrap-3.3.7-dist/css/mystyle.css" rel="stylesheet" /><%-- type="text/css" />--%>
+    <asp:ContentPlaceHolder ID="headContentPlaceHolder" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body class="sozarkaplan">
+     <form id="form1" runat="server">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+
+                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
+                        class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/anasayfa">Söz Tabanı</a>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                   
+                   
+                    <asp:LoginView ID="LoginView1" runat="server">
+                        <AnonymousTemplate>
+                             <li><a href="/yardim">Yardım</a></li>
+                                 <li><a href="/kayit">Üye Ol</a></li>
+  <!-- Trigger the modal with a button                            
+  <button type="button" data-toggle="modal" data-target="#myModal">Open Small Modal</button>  -->       
+                            
+                                 <li> <a href="#giris" data-toggle="modal">Giriş Yap</a></li>    
+                                      
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                        
+                               <li> <%--<a href="/at"> <%:UserName %> <br />--%>
+                              <%--<a href="/at">  <asp:LoginName ID="LoginName1" runat="server" />--%>
+                            </a></li>
+                        
+                           <div class="dropdown">
+ <button class="btn btn-default dropdown-toggle" runat="server" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+   <asp:LoginName ID="LoginName2" runat="server" ForeColor="Red" />
+    <span class="glyphicon glyphicon-menu-down"></span>
+             </button>   
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+
+     <li><a href="/hesabim"><span class="glyphicon glyphicon-user"></span> Hesabım</a> </li>
+        <li><a href="/sifredegistir"><span class="glyphicon glyphicon-refresh"></span> Şifre Değiştir</a> </li>
+   
+    <li role="separator" class="divider"></li>
+       <li><a href="/cikis"><span class="glyphicon glyphicon-off"></span> Çıkış Yap</a> </li>
+  </ul>
+</div>
+                          <%--  <li>
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                            </li>--%>
+                         
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </ul>              
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                        <ul class="nav nav-sidebar">
+
+                             <li class="active"><a href="#"> Hızlı Erişim </a> </li>
+                             <li><a href="/anasayfa"> Anasayfa </a></li> 
+                            <li> <a href="/atasoz"> Atasözleri</a></li>
+
+                            <li class="active"><a href="#"> Hesap Ayarları </a> </li>
+            
+                            <li><a href="/hesabim">Hesabım</a> </li>
+                                 <li><a href="/cikis">Çıkış Yap</a></li>
+
+                             <li class="active"><a href="#"> Söz Tabanına Ekle </a></li>
+                                <li><a href="/kisiekle">Kişi Ekle</a></li>
+                               <li><a href="/kisiliste">Kişi Liste</a></li>
+            
+                           <li><a href="/sozekle">Söz Ekle</a></li>
+                            
+                               <li><a href="/sozliste">Söz Liste</a></li>
+                                <li><a href="/atasozekle"> Atasözü Ekle</a></li>
+                                <li><a href="/filmsoz">Filmlerden Söz Ekle</a></li>
+                    
+                            <asp:PlaceHolder ID="itemPlaceHolder" runat="server">
+
+                            </asp:PlaceHolder>
+                        </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <asp:ContentPlaceHolder ID="mainContentPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+     <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="bootstrap-3.3.7-dist/js/doc.min.js" type="text/javascript"></script>
+        
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+
+                                    <!-- Modal -->
+       
+ <div class="modal fade" id="giris" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Giriş Yap</h4>
+        </div>
+        <div class="modal-body">
+          <p>Söz Tabanına Giriş Yap</p>
+                      <div class="form-group">
+            <asp:Label ID="Label1" runat="server" AssociatedControlID="txtUserName" CssClass="col-md-2 control-label"
+                 Text="User: "></asp:Label>
+            <div class="col-md-9">
+                <asp:TextBox runat="server" ID="txtUserName" CssClass="form-control" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtUserName" ForeColor="Red"   
+                    Display="Dynamic" CssClass="text-danger" ErrorMessage="Kullanıcı Adı Gerekli !" />
+                                </div>
+              </div>
+            <br />
+             <div class="form-group">
+                   <asp:Label ID="Label2" runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label"
+                                 Text="Şifre:"></asp:Label>
+              <div class="col-md-9">
+                <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Password"
+                    CssClass="text-danger" ErrorMessage="Şifre Gerekli !" ForeColor="Red" />
+            </div>
+                  </div>
+            <div class="col-md-offset-3">
+              <asp:LinkButton ID="BtnLogin" runat="server" ForeColor="White"
+                    CssClass="btn btn-primary" OnClick="BtnLogin_Click"  CausesValidation="False">
+                    <span aria-hidden="true" class="fa fa-sign-in"></span> Giriş
+                </asp:LinkButton>
+
+               <button type="button" class="btn btn-danger" data-dismiss="modal">
+               <span aria-hidden="true" class="fa fa-close"></span> İptal </button>
+            </div>
+            </div>
+        <div class="modal-footer"> 
+
+             <p class="text-danger">
+        <asp:Literal runat="server" ID="ErrorMessage" />
+    </p>
+            <p class="text-info">
+            Ömürcan Serdar © 2016 
+            </p>
+        </div>
+           </div>
+    </div>
+            </div>
+       
+    </form>
+</body>
+</html>
